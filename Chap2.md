@@ -25,9 +25,9 @@ In general, the underlying idea of data abstraction is to identify for each type
   (if (null? list1)
       list2
       (cons (car list1) (append (cdr list1) list2))))
-```      
+
       
-```(define (deriv exp var)
+(define (deriv exp var)
   (cond ((number? exp) 0)
         ((variable? exp)
          (if (same-variable? exp var) 1 0))
@@ -42,4 +42,4 @@ In general, the underlying idea of data abstraction is to identify for each type
                          (multiplicand exp))))
         (else
          (error "unknown expression type -- DERIV" exp))))
-         ```
+```
