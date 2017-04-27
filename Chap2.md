@@ -1,5 +1,5 @@
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
-
+```
  (define zero (lambda (f) (lambda (x) x))) 
  
  (define (add-1 n) 
@@ -25,7 +25,7 @@ In general, the underlying idea of data abstraction is to identify for each type
   (if (null? list1)
       list2
       (cons (car list1) (append (cdr list1) list2))))
-      
+```      
       
 ```(define (deriv exp var)
   (cond ((number? exp) 0)
