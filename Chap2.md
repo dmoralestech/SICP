@@ -26,7 +26,7 @@ In general, the underlying idea of data abstraction is to identify for each type
       list2
       (cons (car list1) (append (cdr list1) list2))))
 
-      
+-- 2.3.2      
 (define (deriv exp var)
   (cond ((number? exp) 0)
         ((variable? exp)
@@ -81,8 +81,9 @@ In general, the underlying idea of data abstraction is to identify for each type
 
 (define (multiplier p) (cadr p))
 
-(define (multiplicand p) (caddr p))         
+(define (multiplicand p) (caddr p))    
 
+-- 2.3.3 Representing Sets
 (define (element-of-set? x set)
   (cond ((null? set) false)
         ((equal? x (car set)) true)
