@@ -84,9 +84,15 @@ In general, the underlying idea of data abstraction is to identify for each type
 (define (multiplicand p) (caddr p))    
 
 -- 2.3.3 Representing Sets
+--(define (element-of-set? x set)
+--  (cond ((null? set) false)
+--        ((equal? x (car set)) true)
+--        (else (element-of-set? x (cdr set)))))
+        
 (define (element-of-set? x set)
   (cond ((null? set) false)
-        ((equal? x (car set)) true)
+        ((= x (car set)) true)
+        ((< x (car set)) false)
         (else (element-of-set? x (cdr set)))))
         
 (define (adjoin-set x set)
