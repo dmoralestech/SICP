@@ -26,7 +26,7 @@ In general, the underlying idea of data abstraction is to identify for each type
       list2
       (cons (car list1) (append (cdr list1) list2))))
 
--- 2.3.2      
+;; 2.3.2      
 (define (deriv exp var)
   (cond ((number? exp) 0)
         ((variable? exp)
@@ -83,11 +83,11 @@ In general, the underlying idea of data abstraction is to identify for each type
 
 (define (multiplicand p) (caddr p))    
 
--- 2.3.3 Representing Sets
---(define (element-of-set? x set)
---  (cond ((null? set) false)
---        ((equal? x (car set)) true)
---        (else (element-of-set? x (cdr set)))))
+;; 2.3.3 Representing Sets
+;;(define (element-of-set? x set)
+;;  (cond ((null? set) false)
+;;        ((equal? x (car set)) true)
+;;        (else (element-of-set? x (cdr set)))))
         
 (define (element-of-set? x set)
   (cond ((null? set) false)
@@ -100,13 +100,13 @@ In general, the underlying idea of data abstraction is to identify for each type
       set
       (cons x set)))
       
---(define (intersection-set set1 set2)
--- (cond ((or (null? set1) (null? set2)) '())
---        ((element-of-set? (car set1) set2)        
---         (cons (car set1)
---               (intersection-set (cdr set1) set2)))
---        (else (intersection-set (cdr set1) set2))))
-        
+;;(define (intersection-set set1 set2)
+;; (cond ((or (null? set1) (null? set2)) '())
+;;        ((element-of-set? (car set1) set2)        
+;;         (cons (car set1)
+;;               (intersection-set (cdr set1) set2)))
+;;        (else (intersection-set (cdr set1) set2))))
+;;        
  (define (intersection-set set1 set2)
   (if (or (null? set1) (null? set2))
       '()    
