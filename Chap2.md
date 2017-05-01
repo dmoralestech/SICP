@@ -120,6 +120,12 @@ In general, the underlying idea of data abstraction is to identify for each type
                (intersection-set (cdr set1) set2))
               ((< x2 x1)
                (intersection-set set1 (cdr set2)))))))
-               
+ 
+;; binary tree
+(define (entry tree) (car tree))
+(define (left-branch tree) (cadr tree))
+(define (right-branch tree) (caddr tree))
+(define (make-tree entry left right)
+  (list entry left right))
                
 ```
