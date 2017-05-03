@@ -22,4 +22,7 @@
 
 ((compose square (compose square identity)) 2)
 ;; 16
+
+((compose square (compose square (compose square identity))) 2)
+;; 256.. same as ((repeated sqaure 3) 2)
 ```
