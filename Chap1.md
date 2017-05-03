@@ -19,4 +19,7 @@
   identity)
 
 ((repeated0 square 1) 2)
+
+((compose square (compose square identity)) 2)
+;; 16
 ```
