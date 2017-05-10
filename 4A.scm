@@ -1,3 +1,4 @@
+```
 (define deriv-rules
   '(
     ( (dd (?c c) (? v))              0                                 )
@@ -30,3 +31,10 @@
 ( (* (? c) (+ (? d) (? e))) (+ (* (: c) (: d))
 (* (: c) (: e))) )
 ))
+
+(? x) ;;acts like a variable that can be bound to any expression;
+(?c x) ;;can similarly be bound to any numeric constant. Then
+(: x) ;;is the expression that was bound to x, and
+(: (op x y)) ;;calls the Scheme evaluator (underneath!) with the expressions substituted in for op, x, y.
+
+```
