@@ -37,4 +37,17 @@
 (: x) ;;is the expression that was bound to x, and
 (: (op x y)) ;;calls the Scheme evaluator (underneath!) with the expressions substituted in for op, x, y.
 
+
+(define (constant? x) (number? x))
+(define (variable? x) (symbol? x))
+(define (same-variable? v1 v2) (and (variable? v1) (variable? v2) (eq? v1 v2)))
+(define (make-constant x) x)
+(define (make-sum a1 a2) (list ’+ a1 a2))
+(define (make-product m1 m2) (list ’* m1 m2))
+(define (sum? x) (if (not (atom? x)) (eq? (car x) ’+) nil))
+(define (addend s) (cadr s))
+(define (augend s) (caddr s))
+(define (product? x) (if (not (atom? x)) (eq? (car x) ’*) nil))
+(define (multiplier p) (cadr p))
+(define (multiplicand p) (caddr p))
 ```
