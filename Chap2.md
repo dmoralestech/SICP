@@ -189,4 +189,15 @@ In general, the underlying idea of data abstraction is to identify for each type
         ((equal? given-key (key (car set-of-records)))
          (car set-of-records))
         (else (lookup given-key (cdr set-of-records)))))
+        
+;; Huffman encoding
+(define (make-leaf symbol weight)
+  (list 'leaf symbol weight))
+  
+(define (leaf? object)
+  (eq? (car object) 'leaf))
+  
+(define (symbol-leaf x) (cadr x))
+
+(define (weight-leaf x) (caddr x))
 ```
