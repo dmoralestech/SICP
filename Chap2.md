@@ -48,6 +48,18 @@ one-through-four
         count
         (length-iter (cdr a) (+ 1 count))))
   (length-iter items 0))
+  
+(define (append list1 list2)
+  (if (null? list1)
+      list2
+      (cons (car list1) (append (cdr list1) list2))))
+
+;;Ex 2.17
+(define (last-pair items) 
+ (let ((rest (cdr items))) 
+   (if (null? rest) 
+       items 
+       (last-pair rest)))) 
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
