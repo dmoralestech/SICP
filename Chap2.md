@@ -1,3 +1,37 @@
+2.2
+
+(list <a1> <a2> ... <an>) is same as (cons <a1> (cons <a2> (cons ... (cons <an> nil) ...)))
+
+(define one-through-four (list 1 2 3 4))
+
+one-through-four
+;;(1 2 3 4)
+
+(car one-through-four)
+;;1
+
+(cdr one-through-four)
+;;(2 3 4)
+
+(car (cdr one-through-four))
+;;2
+
+(cons 10 one-through-four)
+;;(10 1 2 3 4)
+
+(cons 5 one-through-four)
+;;(5 1 2 3 4)
+
+(define (list-ref items n)
+  (if (= n 0)
+      (car items)
+      (list-ref (cdr items) (- n 1))))
+      
+(define squares (list 1 4 9 16 25))
+
+(list-ref squares 3)
+;;16
+
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
 ```
  (define zero (lambda (f) (lambda (x) x))) 
