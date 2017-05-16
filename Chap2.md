@@ -62,13 +62,21 @@ one-through-four
        (last-pair rest)))) 
        
 ;;2.18
- (define (reverse items) 
-   (define (iter items result) 
-     (if (null? items) 
-         result 
-         (iter (cdr items) (cons (car items) result)))) 
-  
-   (iter items nil)) 
+(define (reverse items) 
+ (define (iter items result) 
+   (if (null? items) 
+       result 
+       (iter (cdr items) (cons (car items) result)))) 
+
+ (iter items nil)) 
+
+(define nil '()) 
+;; less efficient
+(define (reverse items) 
+ (if (null? (cdr items)) 
+     items 
+     (append (reverse (cdr items)) 
+             (cons (car items) nil)))) 
   
 ;;2.19
  (define (first-denomination denominations) (car denominations)) 
