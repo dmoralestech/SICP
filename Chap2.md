@@ -70,6 +70,23 @@ one-through-four
   
    (iter items nil)) 
   
+;;2.19
+ (define (first-denomination denominations) (car denominations)) 
+ (define (except-first-denom denominations) (cdr denominations)) 
+ (define (no-more? denominations) (null? denominations)) 
+  
+ (define (cc amount denominations) 
+   (cond  
+
+    ((= amount 0) 1) 
+     
+    ((or (< amount 0) (no-more? denominations)) 0) 
+     
+    (else 
+     (+ (cc amount (except-first-denom denominations)) 
+        (cc (- amount  
+               (first-denomination denominations))  
+            denominations))))) 
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
