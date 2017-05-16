@@ -95,6 +95,14 @@ one-through-four
         (cc (- amount  
                (first-denomination denominations))  
             denominations))))) 
+            
+;;2.20
+(define (same-parity head . tail)
+  (cons head 
+        (filter (if (even? head) 
+                    even?
+                    odd?)
+                tail)))
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
