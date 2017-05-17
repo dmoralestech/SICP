@@ -125,6 +125,12 @@ one-through-four
         (else (cons (scale-tree (car tree) factor)
                     (scale-tree (cdr tree) factor)))))
                     
+(define (count-leaves x)
+  (cond ((null? x) 0)  
+        ((not (pair? x)) 1)
+        (else (+ (count-leaves (car x))
+                 (count-leaves (cdr x))))))
+                    
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
