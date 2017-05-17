@@ -112,6 +112,12 @@ one-through-four
 
 (define (square-list items)
   (map (lambda (x) (square x)) items))
+  
+;;2.23
+(define (for-each proc items)
+  (cond ((null? items) #t)
+        (else (proc (car items))
+              (for-each proc (cdr items)))))
                 
 (define (scale-tree tree factor)
   (cond ((null? tree) nil)
