@@ -111,7 +111,7 @@ one-through-four
       (cons (square (car items))  (square-list (cdr items)))))
 
 (define (square-list items)
-  (map square items))
+  (map (lambda (x) (square x)) items))
                 
 (define (scale-tree tree factor)
   (cond ((null? tree) nil)
