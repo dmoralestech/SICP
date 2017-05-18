@@ -118,6 +118,14 @@ one-through-four
   (cond ((null? items) #t)
         (else (proc (car items))
               (for-each proc (cdr items)))))
+              
+;;2.27
+(define (reverse items) 
+ (define (rev-iter items result) 
+   (if (null? items) 
+       result 
+       (rev-iter (cdr items) (cons (car items) result)))) 
+ (rev-iter items nil)) 
                 
 (define (scale-tree tree factor)
   (cond ((null? tree) nil)
