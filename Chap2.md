@@ -126,6 +126,20 @@ one-through-four
        result 
        (rev-iter (cdr items) (cons (car items) result)))) 
  (rev-iter items nil)) 
+ 
+(define (deep-reverse l)
+  (define (iter remaining result)
+    (cond ((null? remaining) result)
+          ((pair? (car remaining))
+            (iter (cdr remaining) (cons (deep-reverse (car remaining)) result)))
+          (else (iter (cdr remaining) (cons (car remaining) result)))))
+  (iter l nil))
+ 
+ ;;2.28
+(define (fringe l)
+(cond ((null? l) nil)
+      ((pair? (car l)) (append (fringe (car l)) (fringe (cdr l))))
+      (else (cons (car l) (fringe (cdr l))))))
                 
 (define (scale-tree tree factor)
   (cond ((null? tree) nil)
