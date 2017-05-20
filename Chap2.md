@@ -168,6 +168,19 @@ one-through-four
              (square sub-tree)))
        tree))
                     
+(define (tree-map proc tree)
+  (map (lambda (sub-tree)
+         (if (pair? sub-tree)
+             (tree-map proc sub-tree)
+             (proc sub-tree)))
+       tree))
+       
+(define (scale-tree tree factor)
+  (tree-map (lambda (x) (* x factor)) tree))
+
+(define (square-tree tree)
+  (tree-map square tree))
+  
 (define (count-leaves x)
   (cond ((null? x) 0)  
         ((not (pair? x)) 1)
