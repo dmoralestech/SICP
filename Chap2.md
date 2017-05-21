@@ -181,6 +181,14 @@ one-through-four
 (define (square-tree tree)
   (tree-map square tree))
   
+;;2.32
+(define (subsets s)
+  (if (null? s)
+      (list nil)
+      (let ((rest (subsets (cdr s))))
+        (append rest (map <??> rest)))))
+        
+  
 (define (count-leaves x)
   (cond ((null? x) 0)  
         ((not (pair? x)) 1)
