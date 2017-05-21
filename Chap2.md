@@ -186,7 +186,7 @@ one-through-four
   (if (null? s)
       (list nil)
       (let ((rest (subsets (cdr s))))
-        (append rest (map <??> rest)))))
+        (append rest (map (lambda (x) (cons (car s) x)) rest)))))
         
   
 (define (count-leaves x)
