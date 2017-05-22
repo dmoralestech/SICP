@@ -199,7 +199,7 @@ one-through-four
 (define (subsets s)
   (display3 "subset: " s)
   (if (null? s)
-      (let () (display2 "s is null")(list nil))
+      (begin (display2 "s is null")(list nil))
       (let ((rest (subsets (cdr s))))
         (newline)
         (display3 "rest is: " rest) 
