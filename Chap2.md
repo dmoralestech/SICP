@@ -256,6 +256,21 @@ s: (1 2 3)
                  (count-leaves (cdr x))))))
                     
 ```
+2.2.3
+```
+(define (filter predicate sequence)
+  (cond ((null? sequence) nil)
+        ((predicate (car sequence))
+         (cons (car sequence)
+               (filter predicate (cdr sequence))))
+        (else (filter predicate (cdr sequence)))))
+        
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
+```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
 ```
