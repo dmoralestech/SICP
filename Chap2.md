@@ -270,6 +270,14 @@ s: (1 2 3)
       initial
       (op (car sequence)
           (accumulate op initial (cdr sequence)))))
+          
+(define (enumerate-interval low high)
+  (if (> low high)
+      nil
+      (cons low (enumerate-interval (+ low 1) high))))
+      
+(enumerate-interval 2 7)
+
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
