@@ -278,6 +278,14 @@ s: (1 2 3)
       
 (enumerate-interval 2 7)
 
+(define (enumerate-tree tree)
+  (cond ((null? tree) nil)
+        ((not (pair? tree)) (list tree))
+        (else (append (enumerate-tree (car tree))
+                      (enumerate-tree (cdr tree))))))
+                      
+(enumerate-tree (list 1 (list 2 (list 3 4)) 5))
+;;(1 2 3 4 5)
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
