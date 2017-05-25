@@ -254,6 +254,7 @@ s: (1 2 3)
         ((not (pair? x)) 1)
         (else (+ (count-leaves (car x))
                  (count-leaves (cdr x))))))
+                 
                     
 ```
 2.2.3
@@ -286,6 +287,18 @@ s: (1 2 3)
                       
 (enumerate-tree (list 1 (list 2 (list 3 4)) 5))
 ;;(1 2 3 4 5)
+
+2.33
+(define (map p sequence)
+  (accumulate (lambda (x y) (cons (p x) y))
+              nil
+              sequence))
+              
+(define (append seq1 seq2)
+  (accumulate cons seq2 seq1))
+  
+(define (length sequence)
+  (accumulate (lambda (x y) (+ 1 y)) 0 sequence))
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
