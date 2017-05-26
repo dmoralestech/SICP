@@ -299,6 +299,10 @@ s: (1 2 3)
   
 (define (length sequence)
   (accumulate (lambda (x y) (+ 1 y)) 0 sequence))
+  
+2.35
+(define (count-leaves t)
+  (accumulate + 0 (map (lambda (x) 1) (enumerate-tree t))))
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
