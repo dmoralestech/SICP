@@ -303,6 +303,14 @@ s: (1 2 3)
 2.35
 (define (count-leaves t)
   (accumulate + 0 (map (lambda (x) 1) (enumerate-tree t))))
+  
+2.36
+(define (accumulate-n op init seqs)
+  (if (null? (car seqs))
+      nil
+      (cons (accumulate op init (map car seqs))
+            (accumulate-n op init (map cdr seqs)))))
+            
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
