@@ -316,6 +316,10 @@ s: (1 2 3)
 
 > (accumulate-n * 1 s)
 (280 880 1944)
+
+2.37
+(define (dot-product v w)
+  (accumulate + 0 (map * v w)))
             
 ```
 
