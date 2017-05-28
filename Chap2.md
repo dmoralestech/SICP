@@ -311,6 +311,12 @@ s: (1 2 3)
       (cons (accumulate op init (map car seqs))
             (accumulate-n op init (map cdr seqs)))))
             
+> (accumulate-n + 0 s)
+(22 26 30)
+
+> (accumulate-n * 1 s)
+(280 880 1944)
+            
 ```
 
 In general, the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, and then to use only those operations in manipulating the data.
