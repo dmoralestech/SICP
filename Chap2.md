@@ -318,8 +318,19 @@ s: (1 2 3)
 (280 880 1944)
 
 2.37
+(define matrix (list (list 1 2 3 4) (list 5 6 7 8) (list 9 10 11 12))) 
+
 (define (dot-product v w)
   (accumulate + 0 (map * v w)))
+
+(dot-product (list 1 2 3) (list 4 5 6)) 
+
+(define (matrix-*-vector m v) 
+ (map (lambda (m-row) (dot-product m-row v)) 
+      m)) 
+ 
+(matrix-*-vector matrix (list 2 3 4 5)) 
+;;(40 96 152)
             
 ```
 
