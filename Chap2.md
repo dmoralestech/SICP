@@ -247,7 +247,85 @@ s: (1 2 3)
 
 => (() (3) (2) (2 3) (1) (1 3) (1 2) (1 2 3))                       
                           
-        
+subset: (1 2 3 4)
+subset: (2 3 4)
+subset: (3 4)
+subset: (4)
+subset: ()
+s is null
+
+rest is: (())
+subset is: (4)
+element of rest: ()
+s: (4)
+(cons (car s) x): (4)
+
+
+rest is: (() (4))
+subset is: (3 4)
+element of rest: ()
+s: (3 4)
+(cons (car s) x): (3)
+
+element of rest: (4)
+s: (3 4)
+(cons (car s) x): (3 4)
+
+
+rest is: (() (4) (3) (3 4))
+subset is: (2 3 4)
+element of rest: ()
+s: (2 3 4)
+(cons (car s) x): (2)
+
+element of rest: (4)
+s: (2 3 4)
+(cons (car s) x): (2 4)
+
+element of rest: (3)
+s: (2 3 4)
+(cons (car s) x): (2 3)
+
+element of rest: (3 4)
+s: (2 3 4)
+(cons (car s) x): (2 3 4)
+
+
+rest is: (() (4) (3) (3 4) (2) (2 4) (2 3) (2 3 4))
+subset is: (1 2 3 4)
+element of rest: ()
+s: (1 2 3 4)
+(cons (car s) x): (1)
+
+element of rest: (4)
+s: (1 2 3 4)
+(cons (car s) x): (1 4)
+
+element of rest: (3)
+s: (1 2 3 4)
+(cons (car s) x): (1 3)
+
+element of rest: (3 4)
+s: (1 2 3 4)
+(cons (car s) x): (1 3 4)
+
+element of rest: (2)
+s: (1 2 3 4)
+(cons (car s) x): (1 2)
+
+element of rest: (2 4)
+s: (1 2 3 4)
+(cons (car s) x): (1 2 4)
+
+element of rest: (2 3)
+s: (1 2 3 4)
+(cons (car s) x): (1 2 3)
+
+element of rest: (2 3 4)
+s: (1 2 3 4)
+(cons (car s) x): (1 2 3 4)
+
+=> (() (4) (3) (3 4) (2) (2 4) (2 3) (2 3 4) (1) (1 4) (1 3) (1 3 4) (1 2) (1 2 4) (1 2 3) (1 2 3 4))        
   
 (define (count-leaves x)
   (cond ((null? x) 0)  
